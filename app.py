@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -46,7 +46,3 @@ plt.ylabel("Charges")
 
 plt.title('Charges vs Age')
 plt.show()
-
-#objective 3
-X3 = data[["G1","G2"]]
-y3 = data.G3
