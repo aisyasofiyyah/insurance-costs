@@ -15,8 +15,8 @@ model= LinearRegression()
 model.fit(X_train,y_train)
 y1_pred= model.predict(X_test)
 
-print("Root mean squared error: {} ".format(mean_squared_error(y_test, y_pred)**0.5))
-print('Variance score: {} '.format(r2_score(y_test,y_pred)))
+st.write("Root mean squared error: {} ".format(mean_squared_error(y_test, y_pred)**0.5))
+st.write('Variance score: {} '.format(r2_score(y_test,y_pred)))
 
 plt.scatter(X_test, y_test, color='black')
 plt.plot(X_test, y1_pred, color='blue', linewidth=1)
@@ -36,8 +36,8 @@ model = LinearRegression(fit_intercept=True)
 model.fit(X_train, y_train) 
 y2_pred = model.predict(X_test)
 
-print(f"RMSE: {(mean_squared_error(y_test, y2_pred))**0.5}.")
-print(f"R^2: {r2_score(y_test, y2_pred):.4f}")
+st.write(f"RMSE: {(mean_squared_error(y_test, y2_pred))**0.5}.")
+st.write(f"R^2: {r2_score(y_test, y2_pred):.4f}")
 
 plt.scatter(X_test, y_test,  color='black')
 plt.plot(X_test, y2_pred, color='blue', linewidth=1)
