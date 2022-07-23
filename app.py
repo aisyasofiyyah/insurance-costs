@@ -25,21 +25,15 @@ if option=='age':
     y2_pred = model.predict(X_test)
     st.write(f"RMSE: {(mean_squared_error(y_test, y2_pred))**0.5}.")
     st.write(f"R^2: {r2_score(y_test, y2_pred):.4f}")
- 
-    fig = px.scatter(
-        x=costs["charges"],
-        y=costs["age"],
-    )
-    fig.update_layout(
-        xaxis_title="Charges",
-        yaxis_title="Age",
-    )
-    st.write(fig)
     
-    chart_data = pd.DataFrame(X2,y2,y2_predict)
-    columns=['charges', 'age', 'y2_predict']
-
-    st.line_chart(chart_data)
+    f=plt.figure()
+    plt.scatter(X_test, y_test, color='black')
+    plt.plot(X_test, y2_pred, color='blue', linewidth=1)
+    plt.xlabel("Charges")
+    plt.ylabel("Age")
+    plt.title('Age vs Charges')
+    
+    st.plotly_chart(f)
 
 elif option=='bmi':
   
