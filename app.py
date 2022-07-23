@@ -13,7 +13,7 @@ option = st.sidebar.selectbox(
     'Select Variables',
      ['age','bmi','children','sweetviz'])
      
-def read_date():
+def read_data():
     return pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')[['age','bmi','children']]
 costs=read_data()
 
