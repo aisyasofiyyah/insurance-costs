@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 import plotly.graph_objs  as go
@@ -7,14 +8,18 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
+costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')
+
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>", unsafe_allow_html=True)
+
+fig, ax = plt.subplots()
+sns.heatmap(costs_col.corr(), ax=ax)
+st.write(fig)
 
 option = st.sidebar.selectbox(
     'Select Variables',
      ['age','bmi','children','sweetviz'])
-     
-costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')
 
 if option=='age':
     st.header("Modeling")
