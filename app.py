@@ -33,11 +33,11 @@ if option=='age':
     """)
     
     f=plt.figure()
-        plt.scatter(X_test, y_test, color='black')
-        plt.plot(X_test, y2_pred, color='blue', linewidth=1)
-        plt.xlabel("Charges")
-        plt.ylabel("Age")
-        plt.title('Age vs Charges')    
+    plt.scatter(X_test, y_test, color='black')
+    plt.plot(X_test, y2_pred, color='blue', linewidth=1)
+    plt.xlabel("Charges")
+    plt.ylabel("Age")
+    plt.title('Age vs Charges')    
     st.plotly_chart(f)
 
 elif option=='bmi':
