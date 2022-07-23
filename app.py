@@ -37,7 +37,7 @@ if option=='age':
     st.write(fig)
     
     chart_data = pd.DataFrame(X2,y2,y2_predict)
-    columns=['charges', 'age', 'y2_predict'])
+    columns=['charges', 'age', 'y2_predict']
 
     st.line_chart(chart_data)
 
