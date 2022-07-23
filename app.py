@@ -37,7 +37,7 @@ if option=='age':
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
-    st.write(f)
+    st.line_chart(f)
 
 elif option=='bmi':
   
