@@ -35,7 +35,11 @@ if option=='age':
         yaxis_title="Age",
     )
     st.write(fig)
-    st.line_chart(y2_pred)
+    
+    chart_data = pd.DataFrame(X2,y2,y2_predict)
+    columns=['charges', 'age', 'y2_predict'])
+
+    st.line_chart(chart_data)
 
 elif option=='bmi':
   
