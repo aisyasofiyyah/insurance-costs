@@ -13,10 +13,6 @@ costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-c
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>", unsafe_allow_html=True)
 
-fig, ax = plt.subplots()
-sns.heatmap(costs_col.corr(), ax=ax)
-st.write(fig)
-
 option = st.sidebar.selectbox(
     'Select Variables',
      ['age','bmi','children','sweetviz'])
@@ -53,9 +49,19 @@ elif option=='bmi':
 
   model.fit(X_train,y_train)
   y1_pred= model.predict(X_test)
-  st.write("Root mean squared error: {} ".format(mean_squared_error(y_test, y1_pred)**0.5))
-  st.write('Variance score: {} '.format(r2_score(y_test,y1_pred)))
+  st.markdown(f"""Linear Regression model trained:
+            -RMSE:{(mean_squared_error(y_test, y1_pred))**0.5}
+            -Variance, r^2:{r2_score(y_test, y1_pred):.4f}
+    """)
   
+  f1=plt.figure()
+  plt.scatter(X_test, y_test, color='black')
+  plt.plot(X_test, y1_pred, color='blue', linewidth=1)
+  plt.xlabel("Charges")
+  plt.ylabel("BMI")
+  plt.title('BMI vs Charges')
+    
+  st.write(f1)
   #columns=['BMI','Charges'] 
   #fig = px.scatter(
   #      x=costs["charges"],
