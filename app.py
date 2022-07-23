@@ -14,7 +14,7 @@ option = st.sidebar.selectbox(
      ['age','bmi','children','sweetviz'])
      
 def read_data():
-    return pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')[['age','bmi','children','charges']]
+    return pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')[['age','bmi','children']]
 costs=read_data()
 
 if option=='age':
