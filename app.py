@@ -26,11 +26,12 @@ if option=='age':
     model = LinearRegression(fit_intercept=True)
     model.fit(X_train, y_train) 
     y2_pred = model.predict(X_test)
-       
-    st.markdown(f"""Linear Regerssion model trained:
-            -RMSE:{(mean_squared_error(y_test, y2_pred))**0.5}
-            -Variance, r^2:{r2_score(y_test, y2_pred):.4f}
-    """)
+    
+    {'Species/Type': ['Iris Setosa','Iris Versicolor','Iris Virginica'],}))
+    st.table("Linear Regression model trained:
+            ['RMSE':{(mean_squared_error(y_test, y2_pred))**0.5}]
+            ['Variance', r^2:{r2_score(y_test, y2_pred):.4f}]
+    ")
     
     f=plt.figure()
     plt.scatter(X_test, y_test, color='black')
