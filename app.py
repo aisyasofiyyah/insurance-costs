@@ -13,9 +13,7 @@ option = st.sidebar.selectbox(
     'Select Variables',
      ['age','bmi','children','sweetviz'])
      
-def read_data():
-    return pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')[['age','bmi','children']]
-costs=read_data()
+costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')
 
 if option=='age':
     st.header("Modeling")
@@ -38,7 +36,7 @@ if option=='age':
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
-    st.plotly_chart(f)
+    st.plotly_chart([f])
 
 elif option=='bmi':
   
