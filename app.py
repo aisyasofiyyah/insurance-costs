@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import plotly.express as px
+import plotly.figure_factory as ff
+import plotly.graph_objs  as go
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -36,7 +37,7 @@ if option=='age':
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
-st.plotly_chart(f)
+    st.plotly_chart(f)
 
 elif option=='bmi':
   
