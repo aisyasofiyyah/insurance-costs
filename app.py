@@ -15,8 +15,7 @@ option = st.sidebar.selectbox(
      
 def read_date():
     return pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')[['age','bmi','children']]
-
-df=read_data()
+costs=read_data()
 
 if option=='age':
     st.header("Modeling")
