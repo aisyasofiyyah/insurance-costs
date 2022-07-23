@@ -11,7 +11,7 @@ st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>",
 
 def user_input_features():
   age = st.sidebar.slider('Age',2,73,5)
-  bmi = st.sidebar.slider('BMI', 14.5,35,16.5)
+  bmi = st.sidebar.slider('BMI', 14.5,35.5,16.5)
   data = {'Age': age,
           'BMI': bmi}
   features = pd.DataFrame(data, index=[0])
