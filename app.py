@@ -36,7 +36,7 @@ if option=='age':
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
-    st.plotly_chart([f])
+st.plotly_chart(f)
 
 elif option=='bmi':
   
