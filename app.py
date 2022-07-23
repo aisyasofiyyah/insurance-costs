@@ -55,11 +55,11 @@ elif option=='bmi':
         x=costs["charges"],
         y=costs["bmi"],
     )
-    fig.update_layout(
+  fig.update_layout(
         xaxis_title="Charges",
         yaxis_title="BMI",
     )
-    st.write(fig)
+  st.write(fig)
   
 #elif option=='children'
 #  figure3=
