@@ -14,13 +14,13 @@ option = st.sidebar.selectbox(
      ['age','bmi','children','sweetviz'])
      
 def read_data():
-    return pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')[['age','bmi','children']]
+    return pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')[['age','bmi','children','charges']]
 costs=read_data()
 
 if option=='age':
     st.header("Modeling")
     X2= pd.DataFrame(costs['age'])
-    y2= costs['charges']
+    y2= costs.charges
     X_train, X_test, y_train, y_test=train_test_split(X2,y2,test_size=0.25,random_state=0)
 
     model = LinearRegression(fit_intercept=True)
