@@ -48,15 +48,15 @@ elif option=='bmi':
   st.write('Variance score: {} '.format(r2_score(y_test,y1_pred)))
   
   #columns=['BMI','Charges'] 
-  fig = px.scatter(
-        x=costs["charges"],
-        y=costs["bmi"],
-    )
-  fig.update_layout(
-        xaxis_title="Charges",
-        yaxis_title="BMI",
-    )
-  st.write(fig)
+  #fig = px.scatter(
+  #      x=costs["charges"],
+  #      y=costs["bmi"],
+  #  )
+  #fig.update_layout(
+  #      xaxis_title="Charges",
+  #      yaxis_title="BMI",
+  #  )
+  #st.write(fig)
   
 #elif option=='children'
 #  figure3=
