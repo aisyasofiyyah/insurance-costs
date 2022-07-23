@@ -30,7 +30,7 @@ y1_pred= model.predict(X_test)
 st.write("Root mean squared error: {} ".format(mean_squared_error(y_test, y1_pred)**0.5))
 st.write('Variance score: {} '.format(r2_score(y_test,y1_pred)))
 
-plt.scatter(X_test, y_test, color='black')
+st.pyplot(plt.scatter(X_test, y_test, color='black'))
 plt.plot(X_test, y1_pred, color='blue', linewidth=1)
 plt.xlabel("BMI")
 plt.ylabel("Charges")
