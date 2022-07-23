@@ -26,18 +26,16 @@ if option=='age':
     st.write(f"RMSE: {(mean_squared_error(y_test, y2_pred))**0.5}.")
     st.write(f"R^2: {r2_score(y_test, y2_pred):.4f}")
  
-    fig = plt.figure()
-    ax = fig.add_subplot(1,1,1)
-
-    ax.scatter(
-        costs["charges"],
-        costs["age"],
+    fig = px.scatter(
+        x=costs["charges"],
+        y=costs["age"],
     )
-
-    ax.set_xlabel("Charges")
-    ax.set_ylabel("Age")
-
+    fig.update_layout(
+        xaxis_title="Charges",
+        yaxis_title="Age",
+    )
     st.write(fig)
+    st.line_chart(y2_pred)
 
 elif option=='bmi':
   
