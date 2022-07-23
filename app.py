@@ -8,51 +8,66 @@ from sklearn.metrics import mean_squared_error, r2_score
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>", unsafe_allow_html=True)
 
-def user_input_features():
-  age = st.sidebar.slider('Age',2,73,5)
-  bmi = st.sidebar.slider('BMI', 14.5,35.5,16.5)
-  data = {'Age': age,
-          'BMI': bmi}
-  features = pd.DataFrame(data, index=[0])
-  return features
-
-df = user_input_features()
-
 costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-costs/main/insurance.csv')
 
-model= LinearRegression()
-X1= pd.DataFrame(costs['bmi'])
-y1= costs['charges']
-X_train, X_test, y_train, y_test = train_test_split(X1, y1, test_size = 0.25, random_state = 0)
+option = st.sidebar.selectbox(
+    'Select Variables',
+     ['age','bmi','children','sweetviz'])
 
-model.fit(X_train,y_train)
-y1_pred= model.predict(X_test)
-st.write("Root mean squared error: {} ".format(mean_squared_error(y_test, y1_pred)**0.5))
-st.write('Variance score: {} '.format(r2_score(y_test,y1_pred)))
+if option=='age':    
+    X2= pd.DataFrame(costs['age'])
+    y2= costs['charges']
+    X_train,X_test,y_train,y_test=train_test_split(X2,y2,test_size=0.25,random_state=0)
 
-st.pyplot(plt.scatter(X_test, y_test, color='black'))
-plt.plot(X_test, y1_pred, color='blue', linewidth=1)
-plt.xlabel("BMI")
-plt.ylabel("Charges")
+    model = LinearRegression(fit_intercept=True)
+    model.fit(X_train, y_train) 
+    y2_pred = model.predict(X_test)
+    st.write(f"RMSE: {(mean_squared_error(y_test, y2_pred))**0.5}.")
+    st.write(f"R^2: {r2_score(y_test, y2_pred):.4f}")
+ 
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
 
-plt.title('Charges vs BMI')
-plt.show()
+    ax.scatter(
+        costs["charges"],
+        costs["age"],
+    )
 
-#finding correlation between age and costs
-X2= pd.DataFrame(costs['age'])
-y2= costs['charges']
-X_train,X_test,y_train,y_test=train_test_split(X2,y2,test_size=0.25,random_state=0)
+    ax.set_xlabel("Charges")
+    ax.set_ylabel("Age")
 
-model = LinearRegression(fit_intercept=True)
-model.fit(X_train, y_train) 
-y2_pred = model.predict(X_test)
-st.write(f"RMSE: {(mean_squared_error(y_test, y2_pred))**0.5}.")
-st.write(f"R^2: {r2_score(y_test, y2_pred):.4f}")
+    st.write(fig)
 
-plt.scatter(X_test, y_test,  color='black')
-plt.plot(X_test, y2_pred, color='blue', linewidth=1)
-plt.xlabel("Age")
-plt.ylabel("Charges")
+elif option=='bmi':
+  
+  model= LinearRegression()
+  X1= pd.DataFrame(costs['bmi'])
+  y1= costs['charges']
+  X_train, X_test, y_train, y_test = train_test_split(X1, y1, test_size = 0.25, random_state = 0)
 
-plt.title('Charges vs Age')
-plt.show()
+  model.fit(X_train,y_train)
+  y1_pred= model.predict(X_test)
+  st.write("Root mean squared error: {} ".format(mean_squared_error(y_test, y1_pred)**0.5))
+  st.write('Variance score: {} '.format(r2_score(y_test,y1_pred)))
+  
+  #columns=['BMI','Charges'] 
+  fig = px.scatter(
+        x=costs["charges"],
+        y=costs["bmi"],
+    )
+    fig.update_layout(
+        xaxis_title="Charges",
+        yaxis_title="BMI",
+    )
+    st.write(fig)
+  
+#elif option=='children'
+#  figure3=
+#  columns=[
+
+#else
+#    sweetv
+    
+
+
+
