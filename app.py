@@ -85,30 +85,30 @@ elif option=='bmi':
   #  )
   #st.write(fig)
   
-elif option=='children':
+#elif option=='children':
   
-  st.write("Under construction")
-  model= LinearRegression()
-  X3= pd.DataFrame(costs['children'])
-  y3= costs['charges']
-  X_train, X_test, y_train, y_test = train_test_split(X3, y3, test_size = 0.25, random_state = 0)
+ # st.write("Under construction")
+ # model= LinearRegression()
+ # X3= pd.DataFrame(costs['children'])
+ # y3= costs['charges']
+ # X_train, X_test, y_train, y_test = train_test_split(X3, y3, test_size = 0.25, random_state = 0)
 
-  model.fit(X_train,y_train)
-  y3_pred= model.predict(X_test)
-  st.table({
-            'RMSE':[{(mean_squared_error(y_test, y3_pred))**0.5}],
-            'Variance':[{r2_score(y_test, y3_pred)}]
-             })
+ # model.fit(X_train,y_train)
+ # y3_pred= model.predict(X_test)
+ # st.table({
+ #           'RMSE':[{(mean_squared_error(y_test, y3_pred))**0.5}],
+ #           'Variance':[{r2_score(y_test, y3_pred)}]
+ #            })
   
-  f3=plt.figure(figsize=(15,10))
-  plt.scatter(X_test, y_test, color='blue', label='No. of Children')
-  plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-  plt.xlabel("Charges")
-  plt.ylabel("No. of Children")
-  plt.legend
-  plt.title('No. of Children vs Charges')
+  #f3=plt.figure(figsize=(15,10))
+  #plt.scatter(X_test, y_test, color='blue', label='No. of Children')
+  #plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+  #plt.xlabel("Charges")
+  #plt.ylabel("No. of Children")
+  #plt.legend
+  #plt.title('No. of Children vs Charges')
     
-  st.write(f3)
+  #st.write(f3)
 
 #else
 #    sweetv
