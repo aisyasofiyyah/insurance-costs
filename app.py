@@ -36,8 +36,8 @@ if option=='age':
     y2_pred = model.predict(X_test)
     
     st.table({
-            'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
-            'Variance, r^2':[{r2_score(y_test, y2_pred)}]
+            'RMSE':{(mean_squared_error(y_test, y2_pred))**0.5},
+            'Variance':{r2_score(y_test, y2_pred)}
              })
     
     f=plt.figure()
@@ -58,8 +58,8 @@ elif option=='bmi':
   model.fit(X_train,y_train)
   y1_pred= model.predict(X_test)
   st.table({
-            'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
-            'Variance, r^2':[{r2_score(y_test, y2_pred)}]
+            'RMSE':{(mean_squared_error(y_test, y1_pred))**0.5},
+            'Variance':{r2_score(y_test, y1_pred)}
              })
   
   f1=plt.figure()
