@@ -37,7 +37,7 @@ if option=='age':
     
     st.table({
             'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
-            'Variance, r^2':[{r2_score(y_test, y2_pred):.4f}]
+            'Variance, r^2':[{r2_score(y_test, y2_pred)}]
              })
     
     f=plt.figure()
