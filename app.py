@@ -40,9 +40,9 @@ if option=='age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
     
-    f=plt.figure(figsize=(12,6))
-    plt.scatter(X_test, y_test, color='black', label='Age')
-    plt.plot(X_test, y2_pred, color='blue', label='Predicted Medical Costs', linewidth=1)
+    f=plt.figure(figsize=(20,6))
+    plt.scatter(X_test, y_test, color='blue', label='Age')
+    plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
