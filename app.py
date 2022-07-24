@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import RendererAgg
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -36,7 +37,10 @@ if option=='age':
             'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
-    
+ 
+    _lock = RendererAgg.lock
+
+    with _lock: 
     f=plt.figure()
     plt.scatter(X_test, y_test, color='blue', label='Age')
     plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
