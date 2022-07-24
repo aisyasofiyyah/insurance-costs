@@ -36,8 +36,8 @@ if option=='age':
     y2_pred = model.predict(X_test)
     
     st.table({
-            'RMSE':{(mean_squared_error(y_test, y2_pred))**0.5},
-            'Variance':{r2_score(y_test, y2_pred)}
+            'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
+            'Variance':[{r2_score(y_test, y2_pred)}]
              })
     
     f=plt.figure(figsize=(12,6))
