@@ -41,12 +41,12 @@ if option=='age':
              })
     
     f=plt.figure(figsize=(15,10))
-    px.scatter(X_test, y_test, color='blue', label='Age')
-    px.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-    px.xlabel("Charges")
-    px.ylabel("Age")
-    px.title('Age vs Charges')    
-    px.legend()
+    plt.scatter(X_test, y_test, color='blue', label='Age')
+    plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+    plt.xlabel("Charges")
+    plt.ylabel("Age")
+    plt.title('Age vs Charges')    
+    plt.legend()
     st.write(f)
 
 elif option=='bmi':
