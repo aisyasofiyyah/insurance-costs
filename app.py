@@ -12,13 +12,21 @@ costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-c
 
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>", unsafe_allow_html=True)
+st.markdown("""
+        The data set contains information about medical costs depending on someone's age, bmi, number of children, is a smoker or not.
+        
+        Objectives of this app are:
+        1) What is the relationship between age and medical costs?
+        2) What is the relationship between bmi and medical costs?
+        3) What variables impacts medical costs.
+""")
 
 option = st.sidebar.selectbox(
     'Select Variables',
      ['age','bmi','children','sweetviz'])
 
 if option=='age':
-    st.header("Modeling")
+    st.subheader("Correlation between Age and Medical costs")
     X2= pd.DataFrame(costs['age'])
     y2= costs.charges
     X_train, X_test, y_train, y_test=train_test_split(X2,y2,test_size=0.25,random_state=0)
@@ -27,10 +35,8 @@ if option=='age':
     model.fit(X_train, y_train) 
     y2_pred = model.predict(X_test)
     
-    st.table("Linear Regression model trained:
-            ['RMSE':{(mean_squared_error(y_test, y2_pred))**0.5}]
-            ['Variance', r^2:{r2_score(y_test, y2_pred):.4f}]
-    ")
+    st.table(['RMSE':{(mean_squared_error(y_test, y2_pred))**0.5}]
+            ['Variance', r^2:{r2_score(y_test, y2_pred):.4f}])
     
     f=plt.figure()
     plt.scatter(X_test, y_test, color='black')
