@@ -23,7 +23,7 @@ st.markdown("""
 
 option = st.sidebar.selectbox(
     'Select Variables',
-     ['age','bmi','children','sweetviz'])
+     ['Age','BMI','No.of Children','sweetviz'])
 
 if option=='age':
     st.subheader("Correlation between Age and Medical costs")
@@ -42,7 +42,7 @@ if option=='age':
     
     f=plt.figure(figsize=(15,10))
     plt.scatter(X_test, y_test, color='blue', label='Age')
-    plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+    plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=2)
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
@@ -64,8 +64,8 @@ elif option=='bmi':
              })
   
   f1=plt.figure(figsize=(15,10))
-  plt.scatter(X_test, y_test, color='black')
-  plt.plot(X_test, y1_pred, color='blue', linewidth=1)
+  plt.scatter(X_test, y_test, color='blue', label='BMI')
+  plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=2)
   plt.xlabel("Charges")
   plt.ylabel("BMI")
   plt.title('BMI vs Charges')
