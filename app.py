@@ -11,11 +11,11 @@ costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-c
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>", unsafe_allow_html=True)
 
-st.sidebar.write("""The data set contains information about medical costs depending on someone's age, bmi, number of children, is a smoker or not.
-        Objectives of this app are:
-        1) What is the relationship between age and medical costs?
-        2) What is the relationship between bmi and medical costs?
-        3) What variables impacts medical costs.
+st.sidebar.markdown("""The data set contains information about medical costs depending on someone's age, bmi, number of children, is a smoker or not.
+        \nObjectives of this app are:
+        \n1) What is the relationship between age and medical costs?
+        \n2) What is the relationship between bmi and medical costs?
+        \n3) What variables impacts medical costs.
   """)
         
 option = st.sidebar.selectbox(
@@ -39,7 +39,7 @@ if option=='age':
     
     f=plt.figure(figsize=(15,10))
     plt.scatter(X_test, y_test, color='blue', label='Age')
-    plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=2)
+    plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
@@ -62,7 +62,7 @@ elif option=='bmi':
   
   f1=plt.figure(figsize=(15,10))
   plt.scatter(X_test, y_test, color='blue', label='BMI')
-  plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=2)
+  plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=1)
   plt.xlabel("Charges")
   plt.ylabel("BMI")
   plt.legend
@@ -97,7 +97,7 @@ elif option=='children':
   
   f3=plt.figure(figsize=(15,10))
   plt.scatter(X_test, y_test, color='blue', label='No. of Children')
-  plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=2)
+  plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=1)
   plt.xlabel("Charges")
   plt.ylabel("No. of Children")
   plt.legend
