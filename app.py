@@ -12,12 +12,12 @@ costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-c
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>", unsafe_allow_html=True)
 
-st.sidebar.markdown("""The data set contains information about medical costs depending on someone's age, bmi, number of children, is a smoker or not.
-        \nObjectives of this app are:
-        \n1) What is the relationship between age and medical costs?
-        \n2) What is the relationship between bmi and medical costs?
-        \n3) What variables impacts medical costs.
-  """)
+#st.sidebar.markdown("""The data set contains information about medical costs depending on someone's age, bmi, number of children, is a smoker or not.
+#        \nObjectives of this app are:
+#        \n1) What is the relationship between age and medical costs?
+#        \n2) What is the relationship between bmi and medical costs?
+#        \n3) What variables impacts medical costs.
+#  """)
         
 option = st.sidebar.selectbox(
     'Select Variables',
