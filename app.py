@@ -35,10 +35,10 @@ if option=='age':
     model.fit(X_train, y_train) 
     y2_pred = model.predict(X_test)
     
-    st.table(pd.DataFrame({
+    st.table({
             'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
             'Variance, r^2':[{r2_score(y_test, y2_pred):.4f}]
-             }))
+             })
     
     f=plt.figure()
     plt.scatter(X_test, y_test, color='black')
@@ -57,10 +57,10 @@ elif option=='bmi':
 
   model.fit(X_train,y_train)
   y1_pred= model.predict(X_test)
-  st.markdown(f"""Linear Regression model trained:
-            -RMSE:{(mean_squared_error(y_test, y1_pred))**0.5}
-            -Variance, r^2:{r2_score(y_test, y1_pred):.4f}
-    """)
+  st.table({
+            'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
+            'Variance, r^2':[{r2_score(y_test, y2_pred):.4f}]
+             })
   
   f1=plt.figure()
   plt.scatter(X_test, y_test, color='black')
