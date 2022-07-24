@@ -40,14 +40,14 @@ if option=='age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
     
-    f3=go.Figure(data=f1.data+f2.data)
-    fig1=px.scatter(X_test, y_test, color='blue', label='Age')
-    fig2=px.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+    f=plt.figure(figsize=(15,10))
+    px.scatter(X_test, y_test, color='blue', label='Age')
+    px.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     px.xlabel("Charges")
     px.ylabel("Age")
     px.title('Age vs Charges')    
     px.legend()
-    st.plotly_chart(f3)
+    st.write(f)
 
 elif option=='bmi':
   
@@ -59,11 +59,11 @@ elif option=='bmi':
   model.fit(X_train,y_train)
   y1_pred= model.predict(X_test)
   st.table({
-            'RMSE':{(mean_squared_error(y_test, y1_pred))**0.5},
-            'Variance':{r2_score(y_test, y1_pred)}
+            'RMSE':[{(mean_squared_error(y_test, y1_pred))**0.5}],
+            'Variance':[{r2_score(y_test, y1_pred)}]
              })
   
-  f1=plt.figure()
+  f1=plt.figure(figsize=(15,10))
   plt.scatter(X_test, y_test, color='black')
   plt.plot(X_test, y1_pred, color='blue', linewidth=1)
   plt.xlabel("Charges")
@@ -71,6 +71,7 @@ elif option=='bmi':
   plt.title('BMI vs Charges')
     
   st.write(f1)
+
   #columns=['BMI','Charges'] 
   #fig = px.scatter(
   #      x=costs["charges"],
