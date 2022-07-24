@@ -59,7 +59,7 @@ elif option=='bmi':
   y1_pred= model.predict(X_test)
   st.table({
             'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
-            'Variance, r^2':[{r2_score(y_test, y2_pred):.4f}]
+            'Variance, r^2':[{r2_score(y_test, y2_pred)}]
              })
   
   f1=plt.figure()
