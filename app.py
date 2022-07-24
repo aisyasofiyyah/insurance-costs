@@ -40,14 +40,14 @@ if option=='age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
     
-    f=go.figure(figsize=(15,10))
-    px.scatter(X_test, y_test, color='blue', label='Age')
-    px.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+    f3=go.Figure(data=f1.data+f2.data)
+    fig1=px.scatter(X_test, y_test, color='blue', label='Age')
+    fig2=px.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     px.xlabel("Charges")
     px.ylabel("Age")
     px.title('Age vs Charges')    
     px.legend()
-    st.plotly_chart(f)
+    st.plotly_chart(f3)
 
 elif option=='bmi':
   
