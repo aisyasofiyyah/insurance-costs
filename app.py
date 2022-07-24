@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import plotly.figure_factory as ff
-import plotly.graph_objs  as go
+import plotly.express as px
+import ployly.graph_objects as go
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -40,13 +40,13 @@ if option=='age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
     
-    f=plt.figure(figsize=(15,10))
-    plt.scatter(X_test, y_test, color='blue', label='Age')
-    plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-    plt.xlabel("Charges")
-    plt.ylabel("Age")
-    plt.title('Age vs Charges')    
-    plt.legend()
+    f=go.figure(figsize=(15,10))
+    px.scatter(X_test, y_test, color='blue', label='Age')
+    px.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+    px.xlabel("Charges")
+    px.ylabel("Age")
+    px.title('Age vs Charges')    
+    px.legend()
     st.plotly_chart(f)
 
 elif option=='bmi':
