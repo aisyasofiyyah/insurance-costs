@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import 
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -45,7 +44,7 @@ if option=='age':
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
     plt.legend()
-    st.write(f)
+    st.plotly_chart(f)
 
 elif option=='bmi':
   
