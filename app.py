@@ -40,14 +40,14 @@ if option=='age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
     
-    f=plt.figure(figsize=(15,10))
+    f=plt.figure(figsize=(15,10),transparent=True)
     plt.scatter(X_test, y_test, color='blue', label='Age')
     plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     plt.xlabel("Charges")
     plt.ylabel("Age")
     plt.title('Age vs Charges')    
     plt.legend()
-    st.write(f,transparent=True)
+    st.write(f)
 
 elif option=='bmi':
   
