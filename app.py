@@ -81,7 +81,7 @@ elif option=='bmi':
   #  )
   #st.write(fig)
   
-elif option=='children'
+elif option=='children':
   
   model= LinearRegression()
   X3= pd.DataFrame(costs['children'])
@@ -97,11 +97,11 @@ elif option=='children'
   
   f3=plt.figure(figsize=(15,10))
   plt.scatter(X_test, y_test, color='blue', label='No. of Children')
-  plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=2)
+  plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=2)
   plt.xlabel("Charges")
-  plt.ylabel("BMI")
+  plt.ylabel("No. of Children")
   plt.legend
-  plt.title('BMI vs Charges')
+  plt.title('No. of Children vs Charges')
     
   st.write(f3)
 
