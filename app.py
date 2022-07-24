@@ -23,7 +23,7 @@ st.markdown("""
 
 option = st.sidebar.selectbox(
     'Select Variables',
-     ['Age','BMI','No.of Children','sweetviz'])
+     ['Age','BMI','No. of Children','sweetviz'])
 
 if option=='age':
     st.subheader("Correlation between Age and Medical costs")
