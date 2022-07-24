@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import plotly.express as px
-import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -12,15 +10,14 @@ costs = pd.read_csv('https://raw.githubusercontent.com/aisyasofiyyah/insurance-c
 
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Medical Costs Prediction App</h1>", unsafe_allow_html=True)
-st.markdown("""
-        The data set contains information about medical costs depending on someone's age, bmi, number of children, is a smoker or not.
-        
+
+st.sidebar.write("""The data set contains information about medical costs depending on someone's age, bmi, number of children, is a smoker or not.
         Objectives of this app are:
         1) What is the relationship between age and medical costs?
         2) What is the relationship between bmi and medical costs?
         3) What variables impacts medical costs.
-""")
-
+  """)
+        
 option = st.sidebar.selectbox(
     'Select Variables',
      ['Age','BMI','No. of Children','sweetviz'])
@@ -68,6 +65,7 @@ elif option=='bmi':
   plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=2)
   plt.xlabel("Charges")
   plt.ylabel("BMI")
+  plt.legend
   plt.title('BMI vs Charges')
     
   st.write(f1)
@@ -83,9 +81,29 @@ elif option=='bmi':
   #  )
   #st.write(fig)
   
-#elif option=='children'
-#  figure3=
-#  columns=[
+elif option=='children'
+  
+  model= LinearRegression()
+  X3= pd.DataFrame(costs['children'])
+  y3= costs['charges']
+  X_train, X_test, y_train, y_test = train_test_split(X3, y3, test_size = 0.25, random_state = 0)
+
+  model.fit(X_train,y_train)
+  y3_pred= model.predict(X_test)
+  st.table({
+            'RMSE':[{(mean_squared_error(y_test, y3_pred))**0.5}],
+            'Variance':[{r2_score(y_test, y3_pred)}]
+             })
+  
+  f3=plt.figure(figsize=(15,10))
+  plt.scatter(X_test, y_test, color='blue', label='No. of Children')
+  plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=2)
+  plt.xlabel("Charges")
+  plt.ylabel("BMI")
+  plt.legend
+  plt.title('BMI vs Charges')
+    
+  st.write(f3)
 
 #else
 #    sweetv
