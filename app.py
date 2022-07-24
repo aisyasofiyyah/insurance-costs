@@ -52,27 +52,27 @@ if option=='age':
 
 elif option=='bmi':
   
-  model= LinearRegression()
-  X1= pd.DataFrame(costs['bmi'])
-  y1= costs['charges']
-  X_train, X_test, y_train, y_test = train_test_split(X1, y1, test_size = 0.25, random_state = 0)
+    model= LinearRegression()
+    X1= pd.DataFrame(costs['bmi'])
+    y1= costs['charges']
+    X_train, X_test, y_train, y_test = train_test_split(X1, y1, test_size = 0.25, random_state = 0)
 
-  model.fit(X_train,y_train)
-  y1_pred= model.predict(X_test)
-  st.table({
+   model.fit(X_train,y_train)
+   y1_pred= model.predict(X_test)
+   st.table({
             'RMSE':[{(mean_squared_error(y_test, y1_pred))**0.5}],
             'Variance':[{r2_score(y_test, y1_pred)}]
              })
   
-  f1=plt.figure(figsize=(15,10))
-  plt.scatter(X_test, y_test, color='blue', label='BMI')
-  plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-  plt.xlabel("Charges")
-  plt.ylabel("BMI")
-  plt.legend
-  plt.title('BMI vs Charges')
+   f1=plt.figure(figsize=(15,10))
+   plt.scatter(X_test, y_test, color='blue', label='BMI')
+   plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+   plt.xlabel("Charges")
+   plt.ylabel("BMI")
+   plt.legend
+   plt.title('BMI vs Charges')
     
-  st.write(f1)
+   st.write(f1)
 
   #columns=['BMI','Charges'] 
   #fig = px.scatter(
@@ -87,6 +87,7 @@ elif option=='bmi':
   
 elif option=='children':
   
+  st.write("Under construction")
   model= LinearRegression()
   X3= pd.DataFrame(costs['children'])
   y3= costs['charges']
