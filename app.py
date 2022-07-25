@@ -37,18 +37,15 @@ if option=='Age':
             'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
- 
-    _lock = RendererAgg.lock
 
-    with _lock: 
-            f=plt.figure()
-            plt.scatter(X_test, y_test, color='blue', label='Age')
-            plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-            plt.xlabel("Charges")
-            plt.ylabel("Age")
-            plt.title('Age vs Charges')    
-            plt.legend()
-            st.plotly_chart(f)
+    f=px.scatter(data_frame=costs, x="age",y="charges", size="size")
+    #plt.scatter(X_test, y_test, color='blue', label='Age')
+    #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+    #plt.xlabel("Charges")
+    #plt.ylabel("Age")
+    #plt.title('Age vs Charges')    
+    #plt.legend()
+    st.write(f)
 
 elif option=='BMI':
   
