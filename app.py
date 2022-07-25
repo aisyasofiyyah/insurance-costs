@@ -38,7 +38,7 @@ if option=='Age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
 
-    f=px.scatter(data_frame=costs, x="age",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")
+    f=px.scatter(data_frame=costs, x="age",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red", width=800, height=400)
     #plt.scatter(X_test, y_test, color='blue', label='Age')
     #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     #plt.xlabel("Charges")
@@ -66,7 +66,9 @@ elif option=='BMI':
   
 elif option=='No. of Children':
   
-  st.write("Under construction")
+  f=px.scatter(data_frame=costs, x="children",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")    
+  st.write(f)
+
   model= LinearRegression()
   X3= pd.DataFrame(costs['children'])
   y3= costs['charges']
@@ -78,10 +80,7 @@ elif option=='No. of Children':
             'RMSE':[{(mean_squared_error(y_test, y3_pred))**0.5}],
             'Variance':[{r2_score(y_test, y3_pred)}]
              })
-  
-  f=px.scatter(data_frame=costs, x="children",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")    
-  st.write(f)
-
+ 
 #else
 #    sweetv
     
