@@ -24,7 +24,7 @@ option = st.sidebar.selectbox(
      ['Age','BMI','No. of Children','sweetviz'])
 
 if option=='Age':
-    st.subheader("Correlation between Age and Medical costs")
+    st.markdown("""Let's have a look at the medical costs for a person according to the age of the person and gender of the insurance staffs.""")
     f=px.scatter(data_frame=costs, x="age",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red", width=1000, height=500)
     #plt.scatter(X_test, y_test, color='blue', label='Age')
     #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
@@ -48,7 +48,10 @@ if option=='Age':
              })
 
 elif option=='BMI':
-  
+    st.markdown("""Let's have a look at the medical costs for a person according to the BMI of the person and gender of the insurance staffs.""")
+    f=px.scatter(data_frame=costs, x="bmi",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red", width=1000, height=500)
+    st.write(f)
+
     model= LinearRegression()
     X1= pd.DataFrame(costs['bmi'])
     y1= costs['charges']
@@ -60,13 +63,10 @@ elif option=='BMI':
             'RMSE':[{(mean_squared_error(y_test, y1_pred))**0.5}],
             'Variance':[{r2_score(y_test, y1_pred)}]
              })
-  
-    f=px.scatter(data_frame=costs, x="bmi",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")
-    st.write(f)
-  
+   
 elif option=='No. of Children':
-  
-  f=px.scatter(data_frame=costs, x="children",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")    
+  st.markdown("""Let's have a look at the medical costs for a person according to the number of children a person has and gender of the insurance staffs.""")
+  f=px.scatter(data_frame=costs, x="children",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red", width=1000, height=500)    
   st.write(f)
 
   model= LinearRegression()
