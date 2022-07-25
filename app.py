@@ -38,7 +38,7 @@ if option=='Age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
 
-    f=px.scatter(data_frame=costs, x="age",y="charges", trendline="ols", trendline_color_override="red")
+    f=px.scatter(data_frame=costs, x="age",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")
     #plt.scatter(X_test, y_test, color='blue', label='Age')
     #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     #plt.xlabel("Charges")
@@ -61,26 +61,8 @@ elif option=='BMI':
             'Variance':[{r2_score(y_test, y1_pred)}]
              })
   
-    f1=plt.figure(figsize=(15,10))
-    plt.scatter(X_test, y_test, color='blue', label='BMI')
-    plt.plot(X_test, y1_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-    plt.xlabel("Charges")
-    plt.ylabel("BMI")
-    plt.legend
-    plt.title('BMI vs Charges')
-    
-    st.write(f1)
- 
-  #columns=['BMI','Charges'] 
-  #fig = px.scatter(
-  #      x=costs["charges"],
-  #      y=costs["bmi"],
-  #  )
-  #fig.update_layout(
-  #      xaxis_title="Charges",
-  #      yaxis_title="BMI",
-  #  )
-  #st.write(fig)
+    f=px.scatter(data_frame=costs, x="bmi",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")
+    st.write(f)
   
 elif option=='No. of Children':
   
@@ -97,15 +79,8 @@ elif option=='No. of Children':
             'Variance':[{r2_score(y_test, y3_pred)}]
              })
   
-  f3=plt.figure(figsize=(15,10))
-  plt.scatter(X_test, y_test, color='blue', label='No. of Children')
-  plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-  plt.xlabel("Charges")
-  plt.ylabel("No. of Children")
-  plt.legend
-  plt.title('No. of Children vs Charges')
-    
-  st.write(f3)
+  f=px.scatter(data_frame=costs, x="children",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red")    
+  st.write(f)
 
 #else
 #    sweetv
