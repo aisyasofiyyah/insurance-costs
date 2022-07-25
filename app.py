@@ -25,6 +25,15 @@ option = st.sidebar.selectbox(
 
 if option=='Age':
     st.subheader("Correlation between Age and Medical costs")
+    f=px.scatter(data_frame=costs, x="age",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red", width=1000, height=500)
+    #plt.scatter(X_test, y_test, color='blue', label='Age')
+    #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+    #plt.xlabel("Charges")
+    #plt.ylabel("Age")
+    #plt.title('Age vs Charges')    
+    #plt.legend()
+    st.write(f)
+
     X2= pd.DataFrame(costs['age'])
     y2= costs.charges
     X_train, X_test, y_train, y_test=train_test_split(X2,y2,test_size=0.25,random_state=0)
@@ -37,15 +46,6 @@ if option=='Age':
             'RMSE':[{(mean_squared_error(y_test, y2_pred))**0.5}],
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
-
-    f=px.scatter(data_frame=costs, x="age",y="charges", facet_col="sex", trendline="ols", trendline_color_override="red", width=1000, height=600)
-    #plt.scatter(X_test, y_test, color='blue', label='Age')
-    #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-    #plt.xlabel("Charges")
-    #plt.ylabel("Age")
-    #plt.title('Age vs Charges')    
-    #plt.legend()
-    st.write(f)
 
 elif option=='BMI':
   
