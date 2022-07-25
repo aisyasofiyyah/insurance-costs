@@ -38,7 +38,7 @@ if option=='Age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
 
-    f=px.scatter(data_frame=costs, x="age",y="charges", color= "sex", trendline="ols")
+    f=px.scatter(data_frame=costs, x="age",y="charges", color= "charges", trendline="ols")
     #plt.scatter(X_test, y_test, color='blue', label='Age')
     #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     #plt.xlabel("Charges")
