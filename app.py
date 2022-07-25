@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
+import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import plotly.express as px
 from sklearn.linear_model import LinearRegression
@@ -38,7 +38,7 @@ if option=='Age':
             'Variance':[{r2_score(y_test, y2_pred)}]
              })
 
-    f=px.scatter(data_frame=costs, x="age",y="charges", size="size")
+    f=px.scatter(data_frame=costs, x="age",y="charges", color= "sex", trendline="ols")
     #plt.scatter(X_test, y_test, color='blue', label='Age')
     #plt.plot(X_test, y2_pred, color='red', label='Predicted Medical Costs', linewidth=1)
     #plt.xlabel("Charges")
