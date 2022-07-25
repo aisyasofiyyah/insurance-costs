@@ -23,7 +23,7 @@ option = st.sidebar.selectbox(
     'Select Variables',
      ['Age','BMI','No. of Children','sweetviz'])
 
-if option=='age':
+if option=='Age':
     st.subheader("Correlation between Age and Medical costs")
     X2= pd.DataFrame(costs['age'])
     y2= costs.charges
@@ -50,7 +50,7 @@ if option=='age':
             plt.legend()
             st.plotly_chart(f)
 
-elif option=='bmi':
+elif option=='BMI':
   
     model= LinearRegression()
     X1= pd.DataFrame(costs['bmi'])
@@ -85,30 +85,30 @@ elif option=='bmi':
   #  )
   #st.write(fig)
   
-#elif option=='children':
+elif option=='No. of Children':
   
- # st.write("Under construction")
- # model= LinearRegression()
- # X3= pd.DataFrame(costs['children'])
- # y3= costs['charges']
- # X_train, X_test, y_train, y_test = train_test_split(X3, y3, test_size = 0.25, random_state = 0)
+  st.write("Under construction")
+  model= LinearRegression()
+  X3= pd.DataFrame(costs['children'])
+  y3= costs['charges']
+  X_train, X_test, y_train, y_test = train_test_split(X3, y3, test_size = 0.25, random_state = 0)
 
- # model.fit(X_train,y_train)
- # y3_pred= model.predict(X_test)
- # st.table({
- #           'RMSE':[{(mean_squared_error(y_test, y3_pred))**0.5}],
- #           'Variance':[{r2_score(y_test, y3_pred)}]
- #            })
+  model.fit(X_train,y_train)
+  y3_pred= model.predict(X_test)
+  st.table({
+            'RMSE':[{(mean_squared_error(y_test, y3_pred))**0.5}],
+            'Variance':[{r2_score(y_test, y3_pred)}]
+             })
   
-  #f3=plt.figure(figsize=(15,10))
-  #plt.scatter(X_test, y_test, color='blue', label='No. of Children')
-  #plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=1)
-  #plt.xlabel("Charges")
-  #plt.ylabel("No. of Children")
-  #plt.legend
-  #plt.title('No. of Children vs Charges')
+  f3=plt.figure(figsize=(15,10))
+  plt.scatter(X_test, y_test, color='blue', label='No. of Children')
+  plt.plot(X_test, y3_pred, color='red', label='Predicted Medical Costs', linewidth=1)
+  plt.xlabel("Charges")
+  plt.ylabel("No. of Children")
+  plt.legend
+  plt.title('No. of Children vs Charges')
     
-  #st.write(f3)
+  st.write(f3)
 
 #else
 #    sweetv
